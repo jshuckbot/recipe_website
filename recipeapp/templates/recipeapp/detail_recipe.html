@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Детальная информация {{ recipe.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Детальная информация: {{ recipe.title }}</h1>
+    <h3>Описание</h3>
+    <div class="desc">{{ recipe.description }}</div>
+    <h3>Шаги приготовления</h3>
+    <div class="steps">{{ recipe.steps }}</div>
+    <h3>Время приготовления</h3>
+    <div class="time">{{ recipe.time }}</div>
+    <h3>Фотография готового блюда</h3>
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.image.name }}">
+    <h3>Автор</h3>
+    <div class="author">{{ recipe.author }}</div>
+
+{% endblock %}
