@@ -24,3 +24,9 @@ def create_recipe(request):
 def detail_recipe(request, recipe_id):
     recipe = get_object_or_404(recipeapp_models.Recipe, pk=recipe_id)
     return render(request, "recipeapp/detail_recipe.html", {"recipe": recipe})
+
+
+def random_recipes(request):
+    recipes = recipeapp_models.Recipe.objects.order_by("?")[:5]
+    print(recipes)
+    return render(request, "recipeapp/random_recipes.html", {"recipes": recipes})
