@@ -20,7 +20,7 @@ def create_recipe(request):
     else:
         form = form = RecipeForm()
 
-    return render(request, "recipeapp/create_recipe.html", {"form": form})
+    return render(request, "recipeapp/create_recipe.html", {"form": form, "section": "create_recipe"})
 
 
 @login_required
