@@ -31,6 +31,18 @@ def detail_recipe(request, recipe_id):
 
 @login_required
 def random_recipes(request):
-    recipes = recipeapp_models.Recipe.objects.order_by("?")[:5]
-    print(recipes)
-    return render(request, "recipeapp/random_recipes.html", {"recipes": recipes, "section": "dashboard"})
+    recipes = recipeapp_models.Recipe.objects.all()
+    user_recipes = recipes.filter(author__username=request.user.username)[:5]
+    rand_recipes = recipes.order_by("?")[:5]
+    # print(request.user.id)
+    return render(
+        request,
+        "recipeapp/random_recipes.html",
+        {"user_recipes": user_recipes, "section": "dashboard", "rand_recipes": rand_recipes},
+    )
+
+
+@login_required
+def user_recipes(request, user_id):
+    recipes = recipeapp_models.Recipe.objects.filter(author=user_id)
+    return render(request, "recipeapp/user_recipes.html", {"recipes": recipes})

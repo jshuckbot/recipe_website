@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Создать рецепт{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
-    <h1>Список рецептов пользователей</h1>
-    <ul>
-        {% for recipe in recipes %}
-            <li><a href="{% url 'recipeapp:detail_recipe' recipe.id %}">{{ recipe.title }}</a></li>
-        {% endfor %}
-    </ul>
-
-
-
+    <div class="recipes">
+        <div class="random_recipe">
+            <h1>Список рецептов пользователей</h1>
+            <ul>
+                {% for recipe in rand_recipes %}
+                    <li><a href="{% url 'recipeapp:detail_recipe' recipe.id %}">{{ recipe.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="recipe_user">
+            <h1>Мои рецепты</h1>
+            <ul>
+                {% for recipe in user_recipes %}
+                    <li><a href="{% url 'recipeapp:detail_recipe' recipe.id %}">{{ recipe.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'recipeapp:user_recipes' request.user.id %}">Все рецепты</a>
+        </div>
+    </div>
 {% endblock %}
