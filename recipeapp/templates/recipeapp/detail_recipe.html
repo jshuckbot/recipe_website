@@ -5,6 +5,9 @@
 
 {% block content %}
     <h1>Детальная информация: {{ recipe.title }}</h1>
+    {% if author.id == request.user.id %}
+        <h2><a href="{% url 'recipeapp:edit_recipe' recipe.id %}">Редактирование рецепта</a></h2>
+    {% endif %}
     <h3>Описание</h3>
     <div class="desc">{{ recipe.description }}</div>
     <h3>Шаги приготовления</h3>
@@ -12,7 +15,7 @@
     <h3>Время приготовления</h3>
     <div class="time">{{ recipe.time }}</div>
     <h3>Фотография готового блюда</h3>
-    <img src="{{ recipe.image.url }}" alt="{{ recipe.image.name }}">
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.image.name }}" width="600px">
     <h3>Автор</h3>
     <div class="author">{{ recipe.author }}</div>
 

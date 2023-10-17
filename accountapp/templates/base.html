@@ -20,7 +20,9 @@
             <li {% if section == 'create_recipe' %}class="selected"{% endif %}>
                 <a href="{% url 'recipeapp:create_recipe' %}">Создать рецепт</a>
             </li>
-            <li></li>
+            <li {% if section == 'user_recipes' %}class="selected"{% endif %}>
+                <a href="{% url 'recipeapp:user_recipes' request.user.id %}">Мои рецепты</a></li>
+
         </ul>
     {% endif %}
     <span class="user">

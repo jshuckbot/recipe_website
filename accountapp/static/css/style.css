@@ -119,15 +119,6 @@ input, textarea {
     font-size: 14px;
 }
 
-input[type=submit], a.button {
-    font-weight: bold;
-    background: #12c064;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
 .image-likes img {
     width: 120px;
     height: 120px;

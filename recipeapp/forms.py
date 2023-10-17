@@ -6,7 +6,7 @@ from recipeapp import models as recipeapp_models
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = recipeapp_models.Recipe
-        fields = ["title", "category", "description", "steps", "time", "image", "author"]
+        fields = ["title", "category", "description", "steps", "time", "image"]
         labels = {
             "title": "Название",
             "category": "Категория",
@@ -14,5 +14,4 @@ class RecipeForm(forms.ModelForm):
             "steps": "Шаги приготовления",
             "time": "Время приготовления",
             "image": "Изображение",
-            "author": "Автор",
         }
